@@ -32,7 +32,7 @@ python main.py --rl_type online --env_name Hopper-v3
 For any questions, please feel free to email chenyuhui2022@ia.ac.cn.
 
 # 🙏 Acknowledgement
-Our code is built upon [comsistency models](https://github.com/openai/consistency_models), [Diffusion-QL](https://github.com/twitter/diffusion-rl). We thank all these authors for their nicely open sourced code and their great contributions to the community.
+Our code is built upon [consistency models](https://github.com/openai/consistency_models), [Diffusion-QL](https://github.com/twitter/diffusion-rl). We thank all these authors for their nicely open sourced code and their great contributions to the community.
 
 # 🏷️ License
 This repository is released under the GNU license. See [LICENSE](LICENSE) for additional details.
