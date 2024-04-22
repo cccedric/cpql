@@ -18,6 +18,7 @@ class CPQL(object):
                  device,
                  state_dim,
                  action_dim,
+                 rl_type="offline",
                  action_space=None,
                  discount=0.99,
                  max_q_backup=False,
@@ -62,7 +63,7 @@ class CPQL(object):
         self.ema_model = copy.deepcopy(self.actor)
         self.update_ema_every = update_ema_every
 
-        self.critic = Critic(state_dim, action_dim).to(device)
+        self.critic = Critic(state_dim, action_dim, rl_type).to(device)
         self.critic_target = copy.deepcopy(self.critic)
         self.critic_optimizer = torch.optim.Adam(self.critic.parameters(), lr=3e-4)
 
@@ -70,6 +71,7 @@ class CPQL(object):
             self.actor_lr_scheduler = CosineAnnealingLR(self.actor_optimizer, T_max=lr_maxt, eta_min=0.)
             self.critic_lr_scheduler = CosineAnnealingLR(self.critic_optimizer, T_max=lr_maxt, eta_min=0.)
 
+        self.rl_type = rl_type
         self.state_dim = state_dim
         self.action_dim = action_dim
         self.discount = discount
@@ -153,10 +155,14 @@ class CPQL(object):
         new_action = self.diffusion.sample(model=self.actor, state=state)
 
         q1_new_action, q2_new_action = self.critic(state, new_action)
-        if np.random.uniform() > 0.5:
-            q_loss = - q1_new_action.mean() / q2_new_action.abs().mean().detach()
+        if self.rl_type == "offline":
+            if np.random.uniform() > 0.5:
+                q_loss = - q1_new_action.mean() / q2_new_action.abs().mean().detach()
+            else:
+                q_loss = - q2_new_action.mean() / q1_new_action.abs().mean().detach()
         else:
-            q_loss = - q2_new_action.mean() / q1_new_action.abs().mean().detach()
+            q_loss = - torch.min(q1_new_action, q2_new_action).mean()
+        
         actor_loss = self.alpha * bc_loss + self.eta * q_loss
 
         self.actor_optimizer.zero_grad()

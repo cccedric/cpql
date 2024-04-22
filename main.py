@@ -48,6 +48,7 @@ def train_agent(env, state_dim, action_dim, device, output_dir, args):
     agent = Agent(state_dim=state_dim,
                   action_dim=action_dim,
                   action_space = env.action_space,
+                  rl_type = args.rl_type,
                   device=device,
                   discount=args.discount,
                   max_q_backup=args.max_q_backup,
@@ -281,6 +282,8 @@ if __name__ == "__main__":
     file_name += f"|alpha-{args.alpha}|eta-{args.eta}"
 
     file_name += f'|sampler_{args.sampler}'
+
+    file_name += f'|test_qnorm'
 
     results_dir = os.path.join(args.output_dir, args.rl_type, args.env_name, file_name)
 

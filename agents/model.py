@@ -48,27 +48,27 @@ class MLP(nn.Module):
         return self.final_layer(x)
 
 class Critic(nn.Module):
-    def __init__(self, state_dim, action_dim, hidden_dim=256):
+    def __init__(self, state_dim, action_dim, rl_type, hidden_dim=256):
         super(Critic, self).__init__()
         self.q1_model = nn.Sequential(nn.Linear(state_dim + action_dim, hidden_dim),
-                                      nn.LayerNorm(hidden_dim),
+                                      nn.LayerNorm(hidden_dim) if rl_type == "offline" else nn.Identity(),
                                       nn.Mish(),
                                       nn.Linear(hidden_dim, hidden_dim),
-                                      nn.LayerNorm(hidden_dim),
+                                      nn.LayerNorm(hidden_dim) if rl_type == "offline" else nn.Identity(),
                                       nn.Mish(),
                                       nn.Linear(hidden_dim, hidden_dim),
-                                      nn.LayerNorm(hidden_dim),
+                                      nn.LayerNorm(hidden_dim) if rl_type == "offline" else nn.Identity(),
                                       nn.Mish(),
                                       nn.Linear(hidden_dim, 1))
 
         self.q2_model = nn.Sequential(nn.Linear(state_dim + action_dim, hidden_dim),
-                                      nn.LayerNorm(hidden_dim),
+                                      nn.LayerNorm(hidden_dim) if rl_type == "offline" else nn.Identity(),
                                       nn.Mish(),
                                       nn.Linear(hidden_dim, hidden_dim),
-                                      nn.LayerNorm(hidden_dim),
+                                      nn.LayerNorm(hidden_dim) if rl_type == "offline" else nn.Identity(),
                                       nn.Mish(),
                                       nn.Linear(hidden_dim, hidden_dim),
-                                      nn.LayerNorm(hidden_dim),
+                                      nn.LayerNorm(hidden_dim) if rl_type == "offline" else nn.Identity(),
                                       nn.Mish(),
                                       nn.Linear(hidden_dim, 1))
         
