@@ -38,7 +38,9 @@ Our code is built upon [consistency models](https://github.com/openai/consistenc
 This repository is released under the GNU license. See [LICENSE](LICENSE) for additional details.
 
 # 📝 Citation
-If you find our work useful, please consider citing:
+If you find our research helpful and would like to reference it in your work, please consider using one of the following citations, depending on the format that best suits your needs:
+
+For the Arxiv version:
 ```
 @article{chen2023boosting,
   title={Boosting Continuous Control with Consistency Policy},
@@ -47,7 +49,30 @@ If you find our work useful, please consider citing:
   year={2023}
 }
 ```
-
+Or, for citing our work presented at the conference of AAMAS 2024:
+```
+@inproceedings{DBLP:conf/atal/ChenLZ24,
+  author       = {Yuhui Chen and
+                  Haoran Li and
+                  Dongbin Zhao},
+  editor       = {Mehdi Dastani and
+                  Jaime Sim{\~{a}}o Sichman and
+                  Natasha Alechina and
+                  Virginia Dignum},
+  title        = {Boosting Continuous Control with Consistency Policy},
+  booktitle    = {Proceedings of the 23rd International Conference on Autonomous Agents
+                  and Multiagent Systems, {AAMAS} 2024, Auckland, New Zealand, May 6-10,
+                  2024},
+  pages        = {335--344},
+  publisher    = {{ACM}},
+  year         = {2024},
+  url          = {https://dl.acm.org/doi/10.5555/3635637.3662882},
+  doi          = {10.5555/3635637.3662882},
+  timestamp    = {Fri, 03 May 2024 14:31:38 +0200},
+  biburl       = {https://dblp.org/rec/conf/atal/ChenLZ24.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+```
 
 
 
