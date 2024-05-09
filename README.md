@@ -1,6 +1,9 @@
 # Consistency Policy Q-Learning (CPQL)
 
-This is the official PyTorch implementation of the paper "[**Boosting Continuous Control with Consistency Policy**](https://arxiv.org/pdf/2310.06343.pdf)".
+This is the official PyTorch implementation of the paper "Boosting Continuous Control with Consistency Policy". For those interested in delving deeper into our research, you can find detailed versions of our paper:
+
+For an extended read, including the appendix, check out the [**Arxiv Version with Appendix**](https://arxiv.org/pdf/2310.06343.pdf).
+For the conference-specific details as presented at AAMAS 2024, access the [**AAMAS 2024 Version**]([https://arxiv.org/pdf/2310.06343.pdf](https://www.ifaamas.org/Proceedings/aamas2024/pdfs/p335.pdf)).
 
 # 🛠️ Installation Instructions
 ## Clone this repository.
