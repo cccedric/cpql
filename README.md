@@ -54,26 +54,13 @@ For the Arxiv version:
 ```
 Or, for citing our work presented at the conference of AAMAS 2024:
 ```
-@inproceedings{DBLP:conf/atal/ChenLZ24,
-  author       = {Yuhui Chen and
-                  Haoran Li and
-                  Dongbin Zhao},
-  editor       = {Mehdi Dastani and
-                  Jaime Sim{\~{a}}o Sichman and
-                  Natasha Alechina and
-                  Virginia Dignum},
-  title        = {Boosting Continuous Control with Consistency Policy},
-  booktitle    = {Proceedings of the 23rd International Conference on Autonomous Agents
-                  and Multiagent Systems, {AAMAS} 2024, Auckland, New Zealand, May 6-10,
-                  2024},
-  pages        = {335--344},
-  publisher    = {{ACM}},
-  year         = {2024},
-  url          = {https://dl.acm.org/doi/10.5555/3635637.3662882},
-  doi          = {10.5555/3635637.3662882},
-  timestamp    = {Fri, 03 May 2024 14:31:38 +0200},
-  biburl       = {https://dblp.org/rec/conf/atal/ChenLZ24.bib},
-  bibsource    = {dblp computer science bibliography, https://dblp.org}
+@inproceedings{chen2023boosting,
+  author={Yuhui Chen and Haoran Li and Dongbin Zhao},
+  title={Boosting Continuous Control with Consistency Policy},
+  booktitle={Proceedings of the 23rd International Conference on Autonomous Agents and Multiagent Systems, {AAMAS} 2024, Auckland, New Zealand, May 6-10, 2024},
+  pages={335--344},
+  publisher={ACM},
+  doi={10.5555/3635637.3662882},
 }
 ```
 
